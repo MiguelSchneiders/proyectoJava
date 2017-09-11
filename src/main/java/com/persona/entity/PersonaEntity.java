@@ -2,8 +2,11 @@ package com.persona.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+
+@Entity
 public class PersonaEntity implements Serializable {
-	private static final long serialVersionUID = -5066301886674651537L;
+	private static final long serialVersionUID = -5066301886674651537L; //DUDA !!!
 	private String nombre;
 	private String apellidoP;
 	private String apellidoM;
@@ -17,7 +20,7 @@ public class PersonaEntity implements Serializable {
 		this.edad = edad;
 	}
 
-	public PersonaEntity() {
+	public PersonaEntity() {   //SUPER DUDA
 		super();
 	}
 

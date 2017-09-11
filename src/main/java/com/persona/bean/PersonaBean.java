@@ -1,3 +1,4 @@
+
 package com.persona.bean;
 
 import java.io.Serializable;
@@ -12,7 +13,7 @@ import com.persona.request.PersonaRequest;
 @Named(value = "personaBean")
 @ViewScoped
 public class PersonaBean implements Serializable {
-	private static final long serialVersionUID = -6009667888721888251L;
+	private static final long serialVersionUID = -6009667888721888251L; // ESTE SERIAL TAMBIEN ES DISTINTO :C
 	private String nombre;
 	private String apellidoP;
 	private String apellidoM;
@@ -23,13 +24,20 @@ public class PersonaBean implements Serializable {
 
 	public void guardar() {
 		PersonaEntity persona = new PersonaEntity();
-		// falta setear valores a persona
+		
 		persona.setNombre(this.getNombre());
 		persona.setApellidoP(this.getApellidoP());
 		persona.setApellidoM(this.getApellidoM());
 		persona.setEdad(this.getEdad());
 		personaRequest.save(persona);
+		
+		nombre = "";
+		apellidoP = "";
+		apellidoM = "";
+		edad = null ;
+		
 	}
+
 
 	public String getNombre() {
 		return nombre;

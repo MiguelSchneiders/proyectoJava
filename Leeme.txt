@@ -1,9 +1,0 @@
-Servidor de Despliegue de Aplicaciones	JBoss EAP 7.0 (OJO!: Archivo Zip)	https://developers.redhat.com/products/eap/download/
-
-IDE de Desarrollo	JBoss DEV Studio 10.2.0 GA (Installer Standalone)	https://developers.redhat.com/products/devstudio/download/
-
-Máquina Virtual (usar una de estas dos) Se los dejo a elección.	JDK 1.8	http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?ssSourceSiteId=otnes
-
-Open JDK 1.8	https://developers.redhat.com/products/openjdk/download/
-
-

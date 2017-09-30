@@ -1,6 +1,8 @@
 package com.persona.facade;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.ejb.Stateless;
 
 import com.persona.base.BasePersona;
@@ -21,8 +23,16 @@ public class PersonaFacade implements Serializable {
 		for (int i = 0; i < BasePersona.listaPersonas.size(); i++) {
 			System.out.println(BasePersona.listaPersonas.get(i).getNombre());				
 		}
-		
-		
+
 		
 	}
+	
+	public void refresh() {
+		BasePersona.listaPersonas.clear();
+	}
+
+	public List<PersonaEntity> getAll() {
+		return BasePersona.listaPersonas;
+	}
+	
 }

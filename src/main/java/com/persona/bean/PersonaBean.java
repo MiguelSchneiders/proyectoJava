@@ -2,6 +2,8 @@
 package com.persona.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -22,6 +24,8 @@ public class PersonaBean implements Serializable {
 	@Inject
 	private PersonaRequest personaRequest;
 
+	private List<PersonaEntity> listaPersonas = new ArrayList<PersonaEntity>();
+
 	public void guardar() {
 		PersonaEntity persona = new PersonaEntity();
 		
@@ -36,6 +40,7 @@ public class PersonaBean implements Serializable {
 		apellidoM = "";
 		edad = null ;
 		
+		listaPersonas = personaRequest.getAll();
 	}
 
 
@@ -69,6 +74,16 @@ public class PersonaBean implements Serializable {
 
 	public void setEdad(Integer edad) {
 		this.edad = edad;
+	}
+
+
+	public List<PersonaEntity> getListaPersona() {
+		return listaPersonas;
+	}
+
+
+	public void setListaPersonas(List<PersonaEntity> listaPersonas) {
+		this.listaPersonas = listaPersonas;
 	}
 
 }

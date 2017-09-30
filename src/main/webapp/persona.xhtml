@@ -36,14 +36,15 @@
                <h:panelGroup style = "display:block; text-align:center">
                   <p:commandButton action="#{personaBean.guardar()}" update="formulario" value="save" icon="ui-icon-disk" />
                </h:panelGroup>
-            </f:facet>
-		
+            </f:facet>           
 		</h:panelGrid>
 		
-	
-		
-		
+		<p:dataTable var="persona" value="#{personaBean.listaPersona}">
+			<p:column headerText="Nombre">
+				<h:outputText value="#{persona.nombre}" />
+			</p:column>
+
+		</p:dataTable>		
 	</h:form>
-	
 </h:body>
 </html>

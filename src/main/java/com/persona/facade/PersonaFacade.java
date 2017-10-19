@@ -21,7 +21,11 @@ public class PersonaFacade implements Serializable {
 	//	System.out.println("Total personas en variable --- >");
 				
 		for (int i = 0; i < BasePersona.listaPersonas.size(); i++) {
-			System.out.println(BasePersona.listaPersonas.get(i).getNombre());				
+			System.out.println(BasePersona.listaPersonas.get(i).getNombre());
+			System.out.println(BasePersona.listaPersonas.get(i).getApellidoP());
+			System.out.println(BasePersona.listaPersonas.get(i).getApellidoM());
+			System.out.println(BasePersona.listaPersonas.get(i).getEdad());
+			
 		}
 
 		
@@ -34,5 +38,6 @@ public class PersonaFacade implements Serializable {
 	public List<PersonaEntity> getAll() {
 		return BasePersona.listaPersonas;
 	}
-	
+
+
 }

@@ -16,17 +16,20 @@ import com.persona.request.PersonaRequest;
 @ViewScoped
 public class PersonaBean implements Serializable {
 	private static final long serialVersionUID = -6009667888721888251L; // ESTE SERIAL TAMBIEN ES DISTINTO :C
-	private String nombre;
-	private String apellidoP;
-	private String apellidoM;
-	private Integer edad;
 
 	@Inject
 	private PersonaRequest personaRequest;
 
 	private List<PersonaEntity> listaPersonas = new ArrayList<PersonaEntity>();
 
+	private String nombre;
+	private String apellidoP;
+	private String apellidoM;
+	private Integer edad;
+	boolean editable;
+	
 	public void guardar() {
+		
 		PersonaEntity persona = new PersonaEntity();
 		
 		persona.setNombre(this.getNombre());
@@ -34,7 +37,7 @@ public class PersonaBean implements Serializable {
 		persona.setApellidoM(this.getApellidoM());
 		persona.setEdad(this.getEdad());
 		personaRequest.save(persona);
-		
+	
 		nombre = "";
 		apellidoP = "";
 		apellidoM = "";
@@ -42,8 +45,11 @@ public class PersonaBean implements Serializable {
 		
 		listaPersonas = personaRequest.getAll();
 	}
+	
+	
 
 
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -85,5 +91,7 @@ public class PersonaBean implements Serializable {
 	public void setListaPersonas(List<PersonaEntity> listaPersonas) {
 		this.listaPersonas = listaPersonas;
 	}
+
+		
 
 }

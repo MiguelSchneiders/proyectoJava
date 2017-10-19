@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 
+
+
 @Entity
 public class PersonaEntity implements Serializable {
 	private static final long serialVersionUID = -5066301886674651537L; //DUDA !!!
@@ -56,4 +58,7 @@ public class PersonaEntity implements Serializable {
 		this.edad = edad;
 	}
 
+
+
+	
 }

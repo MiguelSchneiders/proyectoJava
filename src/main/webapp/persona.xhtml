@@ -18,19 +18,24 @@
             
 		<h:outputText value="Nombre: " />
 		<p:inputText id="inputNombre" value="#{personaBean.nombre}" required="true" requiredMessage="Pone algo hijo e la perra">
-		<p:messages for = "inputNombre"></p:messages>
+		<p:messages for="inputNombre"></p:messages>
 		</p:inputText>
 		
 
 		<h:outputText value="Apellido Paterno: " />
-		<p:inputText value="#{personaBean.apellidoP}" />
+		<p:inputText id="inputApellidoP" value="#{personaBean.apellidoP}" required="true" requiredMessage="Agrega Apellido Paterno">
+		<p:messages for="inputApellidoP"></p:messages>
+		</p:inputText>
 		
-
 		<h:outputText value="Apellido Materno: " />
-		<p:inputText value="#{personaBean.apellidoM}" />
+		<p:inputText id="inputApellidoM" value="#{personaBean.apellidoM}" required="true" requiredMessage="Agrega Apellido Materno">
+		<p:message for="inputApellidoM"></p:message>
+		</p:inputText>
 		
 		<h:outputText value="Edad: " />
-		<p:inputText value="#{personaBean.edad}" />
+		<p:inputText id="inputEdad" value="#{personaBean.edad}" required="true" requiredMessage="Agrega Edad">
+		<p:message for="inputEdad"></p:message>
+		</p:inputText>
 		
 			<f:facet name = "footer">
                <h:panelGroup style = "display:block; text-align:center">
@@ -41,9 +46,28 @@
 		
 		<p:dataTable var="persona" value="#{personaBean.listaPersona}">
 			<p:column headerText="Nombre">
-				<h:outputText value="#{persona.nombre}" />
+				<h:inputText value = "#{persona.nombre}" size = "5" rendered = "#{persona.nombre}" />
+				<h:outputText value="#{persona.nombre}"/>
 			</p:column>
-
+			
+			<p:column headerText="Apellido Paterno">
+			  	<h:outputText value="#{persona.apellidoP}" />
+			</p:column>
+			
+			<p:column headerText="Apellido Materno">
+			  	<h:outputText value="#{persona.apellidoM}" />
+			</p:column>	
+						
+			<p:column headerText="Edad">
+			  	<h:outputText value="#{persona.edad}" />
+			</p:column>		
+			
+			<p:column> 
+            <f:facet name="header">Editar</f:facet>
+            <p:commandButton value="Edit" action="#{personaBean.editAction(persona)}" rendered="#{not persona.editable}" >
+            </p:commandButton>
+          </p:column>
+			
 		</p:dataTable>		
 	</h:form>
 </h:body>

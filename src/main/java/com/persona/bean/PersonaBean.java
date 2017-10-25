@@ -27,29 +27,29 @@ public class PersonaBean implements Serializable {
 	private String apellidoM;
 	private Integer edad;
 	boolean editable;
-	
+
 	public void guardar() {
-		
+
 		PersonaEntity persona = new PersonaEntity();
-		
+
 		persona.setNombre(this.getNombre());
 		persona.setApellidoP(this.getApellidoP());
 		persona.setApellidoM(this.getApellidoM());
 		persona.setEdad(this.getEdad());
 		personaRequest.save(persona);
-	
+
 		nombre = "";
 		apellidoP = "";
 		apellidoM = "";
-		edad = null ;
-		
+		edad = null;
+
 		listaPersonas = personaRequest.getAll();
 	}
-	
-	
 
+	public void editAction(PersonaEntity persona) {
 
-	
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -82,16 +82,12 @@ public class PersonaBean implements Serializable {
 		this.edad = edad;
 	}
 
-
 	public List<PersonaEntity> getListaPersona() {
 		return listaPersonas;
 	}
 
-
 	public void setListaPersonas(List<PersonaEntity> listaPersonas) {
 		this.listaPersonas = listaPersonas;
 	}
-
-		
 
 }

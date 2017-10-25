@@ -12,63 +12,94 @@
 </h:head>
 
 <h:body>
-	<h:form id = "formulario">
-	
-		<h:panelGrid id = "panel" columns = "2" border = "1" cellpadding = "10" cellspacing = "1">
-            
-		<h:outputText value="Nombre: " />
-		<p:inputText id="inputNombre" value="#{personaBean.nombre}" required="true" requiredMessage="Pone algo hijo e la perra">
-		<p:messages for="inputNombre"></p:messages>
-		</p:inputText>
-		
+	<h:form id="formulario">
 
-		<h:outputText value="Apellido Paterno: " />
-		<p:inputText id="inputApellidoP" value="#{personaBean.apellidoP}" required="true" requiredMessage="Agrega Apellido Paterno">
-		<p:messages for="inputApellidoP"></p:messages>
-		</p:inputText>
-		
-		<h:outputText value="Apellido Materno: " />
-		<p:inputText id="inputApellidoM" value="#{personaBean.apellidoM}" required="true" requiredMessage="Agrega Apellido Materno">
-		<p:message for="inputApellidoM"></p:message>
-		</p:inputText>
-		
-		<h:outputText value="Edad: " />
-		<p:inputText id="inputEdad" value="#{personaBean.edad}" required="true" requiredMessage="Agrega Edad">
-		<p:message for="inputEdad"></p:message>
-		</p:inputText>
-		
-			<f:facet name = "footer">
-               <h:panelGroup style = "display:block; text-align:center">
-                  <p:commandButton action="#{personaBean.guardar()}" update="formulario" value="save" icon="ui-icon-disk" />
-               </h:panelGroup>
-            </f:facet>           
+		<h:panelGrid id="panel" columns="2" border="1" cellpadding="10"
+			cellspacing="1">
+
+			<h:outputText value="Nombre: " />
+			<p:inputText id="inputNombre" value="#{personaBean.nombre}"
+				required="true" requiredMessage="Pone algo hijo e la perra">
+				<p:messages for="inputNombre"></p:messages>
+			</p:inputText>
+
+			<h:outputText value="Apellido Paterno: " />
+			<p:inputText id="inputApellidoP" value="#{personaBean.apellidoP}"
+				required="true" requiredMessage="Agrega Apellido Paterno">
+				<p:messages for="inputApellidoP"></p:messages>
+			</p:inputText>
+
+			<h:outputText value="Apellido Materno: " />
+			<p:inputText id="inputApellidoM" value="#{personaBean.apellidoM}"
+				required="true" requiredMessage="Agrega Apellido Materno">
+				<p:message for="inputApellidoM"></p:message>
+			</p:inputText>
+
+			<h:outputText value="Edad: " />
+			<p:inputText id="inputEdad" value="#{personaBean.edad}"
+				required="true" requiredMessage="Agrega Edad">
+				<p:message for="inputEdad"></p:message>
+			</p:inputText>
+
+			<f:facet name="footer">
+				<h:panelGroup style="display:block; text-align:center">
+					<p:commandButton action="#{personaBean.guardar()}"
+						update="formulario" value="save" icon="ui-icon-disk" />
+				</h:panelGroup>
+			</f:facet>
 		</h:panelGrid>
-		
-		<p:dataTable var="persona" value="#{personaBean.listaPersona}">
+
+		<p:dataTable var="persona" value="#{personaBean.listaPersona}"
+			editable="true">
 			<p:column headerText="Nombre">
-				<h:inputText value = "#{persona.nombre}" size = "5" rendered = "#{persona.nombre}" />
-				<h:outputText value="#{persona.nombre}"/>
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{persona.nombre}" />
+					</f:facet>
+					<f:facet name="input">
+						<h:inputText value="#{personaBean.nombre}" />
+					</f:facet>
+				</p:cellEditor>
 			</p:column>
-			
+
 			<p:column headerText="Apellido Paterno">
-			  	<h:outputText value="#{persona.apellidoP}" />
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{persona.apellidoP}" />
+					</f:facet>
+					<f:facet name="input">
+						<h:inputText value="#{personaBean.apellidoP}" />
+					</f:facet>
+				</p:cellEditor>
 			</p:column>
-			
+
 			<p:column headerText="Apellido Materno">
-			  	<h:outputText value="#{persona.apellidoM}" />
-			</p:column>	
-						
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{persona.apellidoM}" />
+					</f:facet>
+					<f:facet name="input">
+						<h:inputText value="#{personaBean.apellidoM}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+
 			<p:column headerText="Edad">
-			  	<h:outputText value="#{persona.edad}" />
-			</p:column>		
-			
-			<p:column> 
-            <f:facet name="header">Editar</f:facet>
-            <p:commandButton value="Edit" action="#{personaBean.editAction(persona)}" rendered="#{not persona.editable}" >
-            </p:commandButton>
-          </p:column>
-			
-		</p:dataTable>		
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{persona.edad}" />
+					</f:facet>
+					<f:facet name="input">
+						<h:inputText value="#{personaBean.edad}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+
+			<p:column>
+				<p:rowEditor />
+			</p:column>
+
+		</p:dataTable>
 	</h:form>
 </h:body>
 </html>
